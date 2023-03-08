@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './styles.css'
 import Card  from '../components/Card'
 import zuviaLogo from '.././assets/zuvia.png'
@@ -22,16 +22,13 @@ export default function Home() {
         second: '2-digit'
       })
     };
-
     setStudents(prevState => [...prevState, newStudent]);
   }
 
-  // function onDelete(){
-
-  //   students.map(student => (
-  //     setStudents(prevState => prevState.filter(s => s.time !== student.time))
-  //   ))
-  // }
+  useEffect(() => {
+    // corpo do useEffect -> ações que são executadas assim que a interface é renderizada
+    console.log('UseEffect foi chamado!')
+  }, [students, setStudentName])
 
   return (
     <div className='container'>
